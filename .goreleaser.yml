@@ -1,0 +1,29 @@
+version: 2
+
+builds:
+  - id: nuon-ext-override-lint
+    main: .
+    binary: nuon-ext-override-lint
+    ldflags:
+      - -s -w -X github.com/nuonco/nuon-ext-override-lint/cmd.BuildVersion={{ .Version }}
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+    goarch:
+      - amd64
+      - arm64
+
+archives:
+  - id: nuon-ext-override-lint
+    builds:
+      - nuon-ext-override-lint
+    format: tar.gz
+    name_template: "nuon-ext-override-lint-{{ .Os }}-{{ .Arch }}"
+
+checksum:
+  name_template: "checksums.txt"
+
+changelog:
+  sort: asc

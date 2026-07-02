@@ -1,0 +1,7 @@
+[extension]
+name = "override-lint"
+description = "Lint install-level Helm values overrides — preview the rendered manifest diff and flag overrides that have no effect (e.g. a wrong key path)"
+
+[extension.auth]
+requires_token = true
+requires_org = true
